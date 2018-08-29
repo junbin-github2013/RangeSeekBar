@@ -14,8 +14,8 @@ import org.ielse.widget.RangeSeekBar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView t1, t2, t3, t4;
-    private RangeSeekBar rsb1, rsb2, rsb3, rsb4;
+    private TextView t1, t2, t3, t4, t5;
+    private RangeSeekBar rsb1, rsb2, rsb3, rsb4, rsb5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         t2 = (TextView) findViewById(R.id.t_2);
         t3 = (TextView) findViewById(R.id.t_3);
         t4 = (TextView) findViewById(R.id.t_4);
+        t5 = (TextView) findViewById(R.id.t_5);
 
         rsb1 = (RangeSeekBar) findViewById(R.id.rsb_1);
         rsb2 = (RangeSeekBar) findViewById(R.id.rsb_2);
@@ -79,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
 
         rsb3.setOnRangeChangedListener(callback);
         rsb4.setOnRangeChangedListener(callback);
+
+        rsb5 = (RangeSeekBar) findViewById(R.id.rsb_5);
+        rsb5.setValue(0, 40);
+        rsb5.setOnRangeChangedListener(new RangeSeekBar.OnRangeChangedListener() {
+            @Override
+            public void onRangeChanged(RangeSeekBar view, float min, float max) {
+                t5.setText((int) min + " - " + (int) max);
+            }
+        });
     }
 
     @Override

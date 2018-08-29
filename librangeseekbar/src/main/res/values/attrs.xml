@@ -4,8 +4,12 @@
         <attr name="min" format="float"/>
         <attr name="reserve" format="float"/>
         <attr name="cells" format="integer"/>
-        <attr name="lineColorSelected" format="color"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="lineColorShadeStart" format="color"/>
+        <attr name="lineColorShadeEnd" format="color"/>
         <attr name="lineColorEdge" format="color"/>
-        <attr name="seekBarResId" format="reference"/>
+        <attr name="leftSeekBarResId" format="reference"/>
+        <attr name="rightSeekBarResId" format="reference"/>
+        <attr name="tipsResId" format="reference"/>
     </declare-styleable>
 </resources>
