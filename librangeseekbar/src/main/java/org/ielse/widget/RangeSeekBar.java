@@ -27,7 +27,7 @@ import ielse.org.widget.R;
 
 public class RangeSeekBar extends View {
 
-    private float DENSITY;
+    private float mDensity;
     private Paint mPaint = new Paint();
 
     // line
@@ -66,9 +66,9 @@ public class RangeSeekBar extends View {
 
     public RangeSeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mDensity = Resources.getSystem().getDisplayMetrics().density;
         TypedArray t = context.obtainStyledAttributes(attrs, R.styleable.RangeSeekBar);
-        DENSITY = Resources.getSystem().getDisplayMetrics().density;
-        mLineHeight = t.getDimensionPixelOffset(R.styleable.RangeSeekBar_lineHeight, (int) (DENSITY * 5));
+        mLineHeight = t.getDimensionPixelOffset(R.styleable.RangeSeekBar_lineHeight, (int) (mDensity * 5));
         mLeftSeekBarResId = t.getResourceId(R.styleable.RangeSeekBar_leftSeekBarResId, 0);
         mRightSeekBarResId = t.getResourceId(R.styleable.RangeSeekBar_rightSeekBarResId, 0);
         mTipsResId = t.getResourceId(R.styleable.RangeSeekBar_tipsResId, 0);
@@ -228,7 +228,7 @@ public class RangeSeekBar extends View {
                         mLineLeft + i * mCellsPercent * mLineWidth, mLineBottom + mLineCorners, mPaint);
             }
             if (mCellsCount == 1) {
-                int midDividerLineHeight = (int) (DENSITY * 13);
+                int midDividerLineHeight = (int) (mDensity * 13);
                 int x = mLineLeft + mLineWidth / 2;
                 canvas.drawLine(x, mLineTop - midDividerLineHeight, x, mLineTop, mPaint);
             }
